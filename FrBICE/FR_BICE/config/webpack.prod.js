@@ -1,0 +1,1 @@
+module.exports = require('frler-webpack-config/config/webpack.prod')

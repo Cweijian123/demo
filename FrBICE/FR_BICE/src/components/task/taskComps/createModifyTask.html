@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>定时任务-添加/编辑任务</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href="/static/css/zui.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/lib/chosen/chosen.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/zui-theme.css">
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript" src="/static/lib/jquery/jquery.js"></script>
+  <script type="text/javascript" src="/static/lib/chosen/chosen.min.js"></script>
+  <script type="text/javascript" src="/static/js/zui.min.js"></script>
+  <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+  <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks[chunk].css %>">
+  <% } %>
+  <!--[if lt IE 9]>
+  <script src="dist/lib/ieonly/html5shiv.js"></script>
+  <script src="dist/lib/ieonly/respond.js"></script>
+<![endif]-->
+</head>
+
+<body>
+  <form class="pd10 form-condensed" onsubmit="return false" name="taskForm">
+    <div class="form-group">
+      <label for="taskName" class="required">任务名称：</label>
+      <input type="text" class="form-control" id="taskName" name="taskname" placeholder="请输入任务名称" autofocus autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="categoryId" class="required">任务类别：</label>
+      <select data-placeholder="任务类别" id="categoryId" name="categoryid" class="chosen-select form-control" tabindex="1"></select>
+    </div>
+    <div class="form-group">
+      <label for="nodeId" class="required">服务节点：</label>
+      <select data-placeholder="服务节点" id="nodeId" name="nodeid" class="chosen-select form-control" tabindex="1"></select>
+    </div>
+    <div class="form-group">
+      <label for="taskCorn" class="required">表达式：</label>
+      <input type="text" class="form-control" id="taskCorn" name="taskcron" placeholder="请输入cron表达式" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="spaceName" class="required">exe\dll任务类名称空间：</label>
+      <input type="text" class="form-control" id="spaceName" name="taskmainclassnamespace" placeholder="请输入exe\dll任务类名称空间" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="fileName" class="required">exe\dll名称：</label>
+      <input type="text" class="form-control" id="fileName" name="taskmainclassdllfilename" placeholder="请输入exe\dll名称" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="taskVersion" class="required">选择版本：</label>
+      <select data-placeholder="选择版本" id="taskVersion" name="taskversion" class="chosen-select form-control" tabindex="1"></select>
+    </div>
+    <div class="form-group">
+      <label for="taskRemark" class="required">备注：</label>
+      <textarea class="form-control" rows="3" id="taskRemark" name="taskremark" placeholder="请输入备注" autocomplete="off"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="taskEmail" class="required">通知邮件：</label>
+      <textarea class="form-control" rows="3" id="taskEmail" placeholder="请输入通知邮件" name="email" autocomplete="off"></textarea>
+      <div class="help-block">多个邮箱用英文状态下逗号隔开</div>
+    </div>
+  </form>
+  <footer class="modal-footer fixed-modal-footer">
+    <button class="btn btn-primary" id="postInfoBtn">添加</button>
+    <button class="btn" id="cancelModalBtn">取消</button>
+  </footer>
+</body>
+
+</html>

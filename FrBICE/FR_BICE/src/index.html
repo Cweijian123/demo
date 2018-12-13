@@ -1,0 +1,16 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>BICE · 黑冰台监控</title>
+  <!--自定义css样式 <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>"> -->
+</head>
+
+<body>
+  <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+  <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks[chunk].css %>">
+  <% } %>
+</body>
+
+</html>

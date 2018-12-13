@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>定时任务-行能列表</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href="/static/css/zui.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/lib/chosen/chosen.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/lib/datagrid/zui.datagrid.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/zui-theme.css">
+  <script type="text/javascript" src="/static/lib/jquery/jquery.js"></script>
+  <script type="text/javascript" src="/static/js/zui.min.js"></script>
+  <script type="text/javascript" src="/static/lib/chosen/chosen.min.js"></script>
+  <script type="text/javascript" src="/static/lib/datagrid/zui.datagrid.js"></script>
+  <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+  <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks[chunk].css %>">
+  <% } %>
+  <!--[if lt IE 9]>
+  <script src="dist/lib/ieonly/html5shiv.js"></script>
+  <script src="dist/lib/ieonly/respond.js"></script>
+<![endif]-->
+</head>
+
+<body>
+  <section class="container-fluid pd10 hide">
+    <header class="page-header-own">
+      <section class="search-group form-condensed">
+        <div class="search-group-item">
+          <select data-placeholder="服务节点" id="NodeId" class="chosen-select form-control" tabindex="1"></select>
+        </div>
+        <div class="search-group-item">
+          <select data-placeholder="任务类别" id="CategoryId" class="chosen-select form-control" tabindex="1"></select>
+        </div>
+        <div class="search-group-item">
+          <input type="text" class="form-control w200 ib" id="TaskName" placeholder="请输入任务名称" autocomplete="off">
+        </div>
+        <div class="search-group-item">
+          <button class="btn btn-primary" id="searchBtn"><i class="icon icon-search fz12"></i> 搜索</button>
+          <button class="btn btn-warning" id="resetBtn"><i class="icon icon-refresh fz12"></i> 重置</button>
+        </div>
+      </section>
+    </header>
+    <section class="table-group">
+      <div id="performanceTb" class="datagrid datagrid-borderless"></div>
+    </section>
+  </section>
+</body>
+
+</html>

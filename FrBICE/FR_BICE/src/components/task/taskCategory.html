@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>定时任务-服务节点</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href="/static/css/zui.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/lib/chosen/chosen.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/lib/datagrid/zui.datagrid.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/zui-theme.css">
+  <script type="text/javascript" src="/static/lib/jquery/jquery.js"></script>
+  <script type="text/javascript" src="/static/js/zui.min.js"></script>
+  <script type="text/javascript" src="/static/lib/chosen/chosen.min.js"></script>
+  <script type="text/javascript" src="/static/lib/datagrid/zui.datagrid.js"></script>
+  <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+  <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks[chunk].css %>">
+  <% } %>
+  <!--[if lt IE 9]>
+  <script src="dist/lib/ieonly/html5shiv.js"></script>
+  <script src="dist/lib/ieonly/respond.js"></script>
+<![endif]-->
+</head>
+
+<body>
+  <section class="container-fluid pd10">
+    <div id="categoryTb" class="datagrid datagrid-borderless box-shadow"></div>
+  </section>
+  <!-- 上传包 -->
+  <div class="modal fade" id="uploadPackModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body">
+          <form onsubmit="return false" name="uploadPackageForm">
+            <div class="form-group">
+              <label class="required">版本包：</label>
+              <input type="file" name="zipfilenames" class="form-control">
+            </div>
+            <div class="form-group">
+              <label class="required">包说明：</label>
+              <textarea class="form-control" name="remark" rows="3" placeholder="请输入包说明" autocomplete="off"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="uploadPackageBtn">上传</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 包审核 -->
+  <div class="modal fade" id="auditPackageModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body ">
+          <form onsubmit="return false" class="ohidden">
+            <div class="form-group ohidden">
+              <label class="col-lg-2 text-right">版本ID：</label>
+              <span class="col-lg-10">123</span>
+            </div>
+            <div class="form-group ohidden">
+              <label class="col-lg-2 text-right">ZIP包：</label>
+              <a src="" download target="_blank" class="col-lg-10">123</a>
+            </div>
+            <div class="form-group ohidden">
+              <label class="col-lg-2 text-right">任务包名称：</label>
+              <span class="col-lg-10">123</span>
+            </div>
+            <div class="form-group ohidden">
+              <label class="col-lg-2 text-right">上传者：</label>
+              <span class="col-lg-10">123</span>
+            </div>
+            <div class="form-group ohidden">
+              <label class="col-lg-2 text-right">创建时间：</label>
+              <span class="col-lg-10">123</span>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" id="auditPassBtn">通过</button>
+          <button type="button" class="btn btn-danger" id="auditRejectBtn">不通过</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

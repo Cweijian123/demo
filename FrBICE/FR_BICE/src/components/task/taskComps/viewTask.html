@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>定时任务-任务详情</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href="/static/css/zui.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/zui-theme.css">
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript" src="/static/lib/jquery/jquery.js"></script>
+  <script type="text/javascript" src="/static/js/zui.min.js"></script>
+  <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+  <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks[chunk].css %>">
+  <% } %>
+  <!--[if lt IE 9]>
+  <script src="dist/lib/ieonly/html5shiv.js"></script>
+  <script src="dist/lib/ieonly/respond.js"></script>
+<![endif]-->
+</head>
+
+<body>
+  <div>
+    <form class="pd10" onsubmit="return false" name="taskForm">
+      <div class="form-group">
+        <label class="col-lg-6 col-md-6">任务名称：</label>
+        <span data-key="taskname"></span>
+      </div>
+      <div class="form-group">
+        <label>任务类别：</label>
+        <span data-key="taskCategory"></span>
+      </div>
+      <div class="form-group">
+        <label>服务节点：</label>
+        <span data-key="taskNode"></span>
+      </div>
+      <div class="form-group">
+        <label>表达式：</label>
+        <span data-key="taskcron"></span>
+      </div>
+      <div class="form-group">
+        <label>exe\dll任务类名称空间：</label>
+        <span data-key="taskmainclassnamespace"></span>
+      </div>
+      <div class="form-group">
+        <label>exe\dll名称：</label>
+        <span data-key="taskmainclassdllfilename"></span>
+      </div>
+      <div class="form-group">
+        <label>选择版本：</label>
+        <span data-key="version"></span>
+      </div>
+      <div class="form-group">
+        <label>备注：</label>
+        <span data-key="taskremark"></span>
+      </div>
+      <div class="form-group">
+        <label>通知邮件：</label>
+        <span data-key="taskemail"></span>
+      </div>
+    </form>
+    <footer class="modal-footer fixed-modal-footer">
+      <button class="btn btn-primary" id="cancelBtn">返回</button>
+    </footer>
+</body>
+
+</html>

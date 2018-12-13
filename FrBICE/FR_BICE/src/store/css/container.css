@@ -1,0 +1,41 @@
+html,
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.tabs-container {
+  height: calc(100vh - 80px);
+}
+
+.hover-nav-stacked {
+  transition: all .2s ease;
+  width: 40px;
+}
+
+.hover-nav-stacked+aside {
+  width: calc(100% - 40px);
+  transition: all .2s ease;
+}
+
+.hover-nav-stacked:hover {
+  width: 160px;
+}
+
+.hover-nav-stacked:hover+aside {
+  width: calc(100% - 160px);
+}
+
+.hover-nav-stacked:hover>#sideNav {
+  transition-delay: 1s;
+  width: 100%;
+  display: inline-block;
+}
+
+.hover-nav-stacked:hover>#sideIcon {
+  display: none;
+}
+
+.tab-nav-link>.title {
+  font-size: 12px;
+}

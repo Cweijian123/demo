@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>BICE · 黑冰台监控 - 控制面板</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href="/static/css/zui.min.css">
+  <script type="text/javascript" src="/static/lib/jquery/jquery.js"></script>
+  <script type="text/javascript" src="/static/js/zui.min.js"></script>
+  <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+  <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+  <% } %>
+  <!--[if lt IE 9]>
+  <script src="dist/lib/ieonly/html5shiv.js"></script>
+  <script src="dist/lib/ieonly/respond.js"></script>
+<![endif]-->
+</head>
+
+<body>
+  <!--[if lt IE 8]>
+    <div class="alert alert-danger">您正在使用 <strong>过时的</strong> 浏览器. 是时候 <a href="http://browsehappy.com/">更换一个更好的浏览器</a> 来提升用户体验.</div>
+  <![endif]-->
+  <section class="container-fluid pd10">
+    控制面板
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>BICE · 黑冰台监控 - 登录</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href="/static/css/zui.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/zui-theme.css">
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript" src="/static/lib/jquery/jquery.js"></script>
+  <script type="text/javascript" src="/static/js/zui.min.js"></script>
+  <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+  <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks[chunk].css %>">
+  <% } %>
+  <!--[if lt IE 9]>
+  <script src="dist/lib/ieonly/html5shiv.js"></script>
+  <script src="dist/lib/ieonly/respond.js"></script>
+<![endif]-->
+</head> 
+
+<body>
+  <!--[if lt IE 8]>
+    <div class="alert alert-danger">您正在使用 <strong>过时的</strong> 浏览器. 是时候 <a href="http://browsehappy.com/">更换一个更好的浏览器</a> 来提升用户体验.</div>
+  <![endif]-->
+  <section class="container">
+    <aside class="login-form">
+      <form name="loginForm" onsubmit="return false">
+        <div class="form-group">
+          <label for="account">账号</label>
+          <input type="text" class="form-control" autofocus id="account" name="Account" autocomplete="off" placeholder="请输入账号">
+        </div>
+        <div class="form-group mt20">
+          <label for="password">密码</label>
+          <input type="password" class="form-control" id="password" name="Password" autocomplete="off" placeholder="请输入密码">
+        </div>
+        <button class="btn btn-block btn-primary mt50" id="loginBtn" type="button">登录</button>
+        <button class="btn btn-block mt20" type="reset" id="resetBtn">重置</button>
+      </form>
+      <hr>
+      <img src="../static/images/bice.png" width="180" />
+    </aside>
+  </section>
+  <footer class="footer">
+    Copyright © 2018 广州弗睿贸易有限公司 All Right Reserved 粤ICP备17116378号-1
+  </footer>
+</body>
+
+</html>

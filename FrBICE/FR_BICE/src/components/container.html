@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>BICE · 黑冰台监控</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href="/static/css/zui.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/lib/tabs/zui.tabs.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/lib/datagrid/zui.datagrid.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/zui-theme.css">
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript" src="/static/lib/jquery/jquery.js"></script>
+  <script type="text/javascript" src="/static/js/zui.min.js"></script>
+  <script type="text/javascript" src="/static/lib/tabs/zui.tabs.min.js"></script>
+  <script type="text/javascript" src="/static/lib/datagrid/zui.datagrid.js"></script>
+  <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+  <script type="text/javascript" src="<%=htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks[chunk].css %>">
+  <% } %>
+  <!--[if lt IE 9]>
+  <script src="dist/lib/ieonly/html5shiv.js"></script>
+  <script src="dist/lib/ieonly/respond.js"></script>
+<![endif]-->
+</head>
+
+<body>
+  <!--[if lt IE 8]>
+    <div class="alert alert-danger">您正在使用 <strong>过时的</strong> 浏览器. 是时候 <a href="http://browsehappy.com/">更换一个更好的浏览器</a> 来提升用户体验.</div>
+  <![endif]-->
+  <nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+      <!-- 导航头部 -->
+      <div class="navbar-header col-sm-1 col-md-1 col-lg-1">
+        <span class="navbar-brand text-center ib w100">BICE · 黑冰台</span>
+      </div>
+      <!-- 导航项目 -->
+      <div class="collapse navbar-collapse navbar-collapse-example">
+        <!-- 一般导航项目 -->
+        <ul class="nav navbar-nav" id="nav">
+          <li><a href="javascript:void(0);" data-side="task">任务监控</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" id="username"></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="javascript:void(0)" id="logoutBtn">退出</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="container-fluid">
+    <aside class="col-sm-1 col-md-1 col-lg-1 hidden-xs hover-nav-stacked">
+      <ul class="nav nav-secondary nav-stacked hide" id="sideNav"></ul>
+      <ul class="nav nav-secondary nav-stacked" id="sideIcon">
+      </ul>
+    </aside>
+    <aside class="col-sm-11 col-md-11 col-lg-11">
+      <div class="tabs" id="tabs"></div>
+    </aside>
+  </section>
+</body>
+
+</html>
